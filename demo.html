@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Frames3D demo</title>
+    <style>
+      body {
+        margin: 0;
+        background: #fff;
+      }
+
+      #dulmont-viewer {
+        width: min(1100px, calc(100% - 40px));
+        margin: 28px auto;
+        background: #fafafa;
+      }
+
+      #dulmont-viewer .frames3d__image {
+        aspect-ratio: 3 / 2;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dulmont-viewer"></div>
+
+    <script src="frames3d.js"></script>
+    <script>
+      const frames = Array.from({ length: 39 }, (_, index) =>
+        `demo_frames/frame-${String(index).padStart(2, '0')}.webp`
+      );
+
+      new Frames3D('#dulmont-viewer', {
+        frames,
+        alt: 'Dulmont',
+        invertScroll: true,
+      });
+    </script>
+  </body>
+</html>
